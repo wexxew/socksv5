@@ -1,7 +1,7 @@
 { "name": "wxsocksv5",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "Wex Xew",
-  "description": "Fork socksv5 for solving of my tasks",
+  "description": "Better than simple the socksv5 :-)",
   "main": "./index",
   "scripts": {
     "test": "node test/test.js"
@@ -15,5 +15,5 @@
   "engines": { "node": ">=0.10.0" },
   "keywords": [ "socks", "socks5", "socksv5", "proxy" ],
   "licenses": [ { "type": "MIT", "url": "http://github.com/mscdex/socksv5/raw/master/LICENSE" } ],
-  "repository" : { "type": "git", "url": "https://github.com/wexxew/socksv5.git" }
+  "repository" : { "type": "git", "url": "https://github.com/wexxew/wxsocksv5.git" }
 }

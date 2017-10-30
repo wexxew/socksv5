@@ -3,7 +3,7 @@ Description
 
 SOCKS protocol version 5 server and client implementations for node.js
 
-** THIS IS FORK OF <https://github.com/mscdex/socksv5> **
+> THIS IS FORK OF <https://github.com/mscdex/socksv5>
 
 Requirements
 ------------
@@ -13,6 +13,12 @@ Requirements
 Main difference from original release
 -------------------------------------
 
+### v1.0.7
++ [BUGFIX] If closed port on socks, this cause an error with a code ESOCKSCONNREFUSED
++ [BUGFIX] If closed port on remote server, this cause an error with a code
+  ECONNREFUSED
+
+### v1.0.6
 + Added the option "timeout" into the client config (it works when 
   socks5 connecting to the remote host). Then a "timeout" emitted, will 
   to be also emitted "error" event with the code = "ETIMEOUT"
@@ -54,11 +60,13 @@ socketClient.on('connect', function(socket){
 
 
 socketClient.on('error', (err) => {
-  if (err.code == 'ECONNREFUSED') {
+  if (err.code == 'ESOCKSCONNREFUSED') {
     console.log('SOCKS port closed')
+  } else if (err.code == 'ECONNREFUSED') {
+    console.log('Remote host port closed')
   } else if (err.code == 'ESOCKSTIMEOUT') {
     console.log('Connection to socks timeout')
-  } else if (err.code == 'ETIMEDOUT') {
+  } else if (err.code == 'ETIMEOUT') {
     console.log('Connection to host timeout')
   } else if (err.code == 'ENETUNREACH') {
     console.log('Remote host address error')
