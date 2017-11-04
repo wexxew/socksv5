@@ -1,5 +1,5 @@
 { "name": "wxsocksv5",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": "Wex Xew",
   "description": "Better than simple the socksv5 :-)",
   "main": "./index",
